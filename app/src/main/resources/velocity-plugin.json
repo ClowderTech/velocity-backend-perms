@@ -1,0 +1,14 @@
+{
+	"id": "velocity-backend-perms",
+	"name": "VelocityBackendPerms",
+	"version": "1.0.0",
+	"authors": ["MrScarySpaceCat"],
+	"dependencies": [
+		{
+			"id": "luckperms",
+			"optional": true
+		}
+	],
+	"main": "com.clowdertech.velocitybackendperms.Main",
+	"apiVersion": "3"
+}
