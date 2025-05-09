@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-@Plugin(id = "velocity-backend-perms", name = "VelocityBackendPerms", version = "1.0.0", description = "Gates backend server access via LuckPerms", authors = {
+@Plugin(id = "velocity-backend-perms", name = "VelocityBackendPerms", version = "1.1.0", description = "Gates backend server access via LuckPerms", authors = {
         "MrScarySpaceCat" })
 public class Main {
 
