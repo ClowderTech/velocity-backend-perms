@@ -1,5 +1,9 @@
-package com.clowdertech.velocitybackendperms;
+package com.clowdertech.velocitybackendperms.commands;
 
+import com.clowdertech.velocitybackendperms.Main;
+import com.clowdertech.velocitybackendperms.utils.Detectables;
+import com.clowdertech.velocitybackendperms.utils.SuggestHelper;
+import com.velocitypowered.api.command.CommandMeta;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.permission.Tristate;
 import com.velocitypowered.api.proxy.Player;
@@ -12,9 +16,14 @@ import java.util.List;
 public final class ConnectCommand implements SimpleCommand {
 
     private ProxyServer proxyServer;
+    private Main plugin;
+    public CommandMeta commandMeta;
 
-    public ConnectCommand(ProxyServer server) {
+    public ConnectCommand(ProxyServer server, Main mainPlugin) {
         proxyServer = server;
+        plugin = mainPlugin;
+        commandMeta = proxyServer.getCommandManager().metaBuilder("connect").aliases("server").plugin(plugin).build();
+        proxyServer.getCommandManager().unregister("server");
     }
 
     @Override
@@ -66,9 +75,7 @@ public final class ConnectCommand implements SimpleCommand {
     // suggestions
     @Override
     public CompletableFuture<List<String>> suggestAsync(final Invocation invocation) {
-        return CompletableFuture.completedFuture(proxyServer.getAllServers().stream()
-                .filter(server -> ((Player) invocation.source()).getPermissionValue(
-                        "velocity.server." + server.getServerInfo().getName()) != Tristate.FALSE)
-                .map(server -> server.getServerInfo().getName()).toList());
+        return SuggestHelper.execute(invocation,
+                inv -> Detectables.detectableServersStrings(proxyServer, (Player) inv.source()));
     }
 }

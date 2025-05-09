@@ -28,6 +28,7 @@ dependencies {
     compileOnly("net.luckperms:api:5.4")
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.1")
     compileOnly("com.mojang:brigadier:1.0.18")
+    implementation("org.reflections:reflections:0.9.12")
 }
 
 
