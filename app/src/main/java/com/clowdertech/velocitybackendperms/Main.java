@@ -16,17 +16,17 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
-import java.util.Map;
-import java.util.WeakHashMap;
+import java.util.ArrayList;
+import java.util.List;
 
-@Plugin(id = "velocity-backend-perms", name = "VelocityBackendPerms", version = "1.1.0", description = "Gates backend server access via LuckPerms", authors = {
+@Plugin(id = "velocity-backend-perms", name = "VelocityBackendPerms", version = "1.1.1", description = "Gates backend server access via LuckPerms", authors = {
         "MrScarySpaceCat" })
 public class Main {
 
     private final ProxyServer server;
     private final Logger logger;
     private final Path dataDirectory;
-    public final Map<Player, Boolean> transferMap = new WeakHashMap<>();
+    public final List<Player> transferMap = new ArrayList<>();
 
     @Inject
     public Main(ProxyServer server, Logger logger, @DataDirectory Path dataDirectory) {
@@ -37,12 +37,11 @@ public class Main {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-            CommandRegistrar registrar = new CommandRegistrar(
-            server,
-            logger,
-            "com.clowdertech.velocitybackendperms.commands",
-            this
-        );
+        CommandRegistrar registrar = new CommandRegistrar(
+                server,
+                logger,
+                "com.clowdertech.velocitybackendperms.commands",
+                this);
         registrar.registerAll();
 
         logger.info("VelocityBackendPerms initialized, data directory: {}", dataDirectory);
@@ -60,7 +59,7 @@ public class Main {
         Tristate outcome = player.getPermissionValue(node);
 
         // Only block on explicit FALSE; UNDEFINED → allow
-        if (outcome == Tristate.FALSE && !transferMap.get(player)) {
+        if (outcome == Tristate.FALSE && !transferMap.contains(player)) {
             player.disconnect(
                     Component.text("You lack permission to join this server.", NamedTextColor.RED));
             event.setResult(ServerPreConnectEvent.ServerResult.denied());
@@ -69,7 +68,7 @@ public class Main {
                     target.getServerInfo().getName(),
                     node);
         } else {
-            if (transferMap.get(player)) {
+            if (transferMap.contains(player)) {
                 transferMap.remove(player);
             }
             logger.trace("Allowed {} → {} (node {} = {})",

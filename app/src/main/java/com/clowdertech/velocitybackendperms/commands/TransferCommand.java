@@ -68,7 +68,7 @@ public final class TransferCommand implements SimpleCommand {
             return;
         }
 
-        plugin.transferMap.put(tPlayer, true);
+        plugin.transferMap.add(tPlayer);
 
         tPlayer.createConnectionRequest(server).connectWithIndication().thenAcceptAsync(indication -> {
             if (indication) {
