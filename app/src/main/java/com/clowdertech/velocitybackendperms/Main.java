@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-@Plugin(id = "velocity-backend-perms", name = "VelocityBackendPerms", version = "1.1.3", description = "Gates backend server access via LuckPerms", authors = {
+@Plugin(id = "velocity-backend-perms", name = "VelocityBackendPerms", version = "1.1.4", description = "Gates backend server access via LuckPerms", authors = {
         "MrScarySpaceCat" })
 public class Main {
 

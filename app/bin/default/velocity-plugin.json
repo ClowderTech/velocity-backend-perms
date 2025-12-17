@@ -1,0 +1,1 @@
+{"id":"velocity-backend-perms","name":"VelocityBackendPerms","version":"1.1.4","description":"Gates backend server access via LuckPerms","authors":["MrScarySpaceCat"],"dependencies":[],"main":"com.clowdertech.velocitybackendperms.Main"}

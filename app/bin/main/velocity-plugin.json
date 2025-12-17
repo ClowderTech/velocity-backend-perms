@@ -1,10 +1,8 @@
 {
 	"id": "velocity-backend-perms",
 	"name": "VelocityBackendPerms",
-	"version": "1.1.4",
-	"authors": [
-		"MrScarySpaceCat"
-	],
+	"version": "1.1.3",
+	"authors": ["MrScarySpaceCat"],
 	"dependencies": [
 		{
 			"id": "luckperms",

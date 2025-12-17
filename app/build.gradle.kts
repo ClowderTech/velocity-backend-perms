@@ -1,11 +1,11 @@
 plugins {
     java
-    id("com.gradleup.shadow") version "9.1.0"
+    id("com.gradleup.shadow") version "9.3.0"
 }
 
 group = "com.clowdertech"
 
-version = "1.1.3"
+version = "1.1.4"
 
 repositories {
     mavenCentral()
@@ -33,8 +33,8 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 tasks.withType<Test> { useJUnitPlatform() }
