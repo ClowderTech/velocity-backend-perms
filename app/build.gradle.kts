@@ -1,11 +1,11 @@
 plugins {
     java
-    id("com.gradleup.shadow") version "9.3.0"
+    id("com.gradleup.shadow") version "9.4.1"
 }
 
 group = "com.clowdertech"
 
-version = "1.1.4"
+version = "1.1.5"
 
 repositories {
     mavenCentral()
@@ -24,12 +24,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
-    annotationProcessor("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
+    compileOnly("com.velocitypowered:velocity-api:3.5.0-SNAPSHOT")
+    annotationProcessor("com.velocitypowered:velocity-api:3.5.0-SNAPSHOT")
     compileOnly("net.luckperms:api:5.5")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.0.3")
     compileOnly("com.mojang:brigadier:1.0.18")
-    implementation("org.reflections:reflections:0.9.12")
+    implementation("org.reflections:reflections:0.10.2")
 }
 
 java {
