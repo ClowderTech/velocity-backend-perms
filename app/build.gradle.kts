@@ -1,11 +1,11 @@
 plugins {
     java
-    id("com.gradleup.shadow") version "9.4.1"
+    id("com.gradleup.shadow") version "9.6.1"
 }
 
 group = "com.clowdertech"
 
-version = "1.1.5"
+version = "1.1.6"
 
 repositories {
     mavenCentral()
@@ -24,8 +24,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.velocitypowered:velocity-api:3.5.0-SNAPSHOT")
-    annotationProcessor("com.velocitypowered:velocity-api:3.5.0-SNAPSHOT")
+    compileOnly("com.velocitypowered:velocity-api:4.1.0-SNAPSHOT")
+    annotationProcessor("com.velocitypowered:velocity-api:4.1.0-SNAPSHOT")
     compileOnly("net.luckperms:api:5.5")
     testImplementation("org.junit.jupiter:junit-jupiter:6.0.3")
     compileOnly("com.mojang:brigadier:1.0.18")
@@ -33,8 +33,8 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
 }
 
 tasks.withType<Test> { useJUnitPlatform() }

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.reflections.Reflections;
-import org.reflections.scanners.SubTypesScanner;
+import org.reflections.util.ConfigurationBuilder;
 
 public class CommandRegistrar {
 
@@ -46,8 +46,8 @@ public class CommandRegistrar {
 
         // 1. Scan for all subtypes of SimpleCommand under our package
         Reflections reflections = new Reflections(
-                basePackage,
-                new SubTypesScanner(false) // don't exclude Object
+                new ConfigurationBuilder()
+                    .forPackage(basePackage)
         );
         Set<Class<? extends SimpleCommand>> cmdClasses = reflections.getSubTypesOf(SimpleCommand.class);
 
