@@ -17,7 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 21
+
+      - name: Set up JDK 25
         uses: https://github.com/actions/setup-java@v6
         with:
           java-version: "25"
@@ -28,8 +29,7 @@ jobs:
       - name: Setup Gradle
         uses: https://github.com/gradle/actions/setup-gradle@v4
         with:
-          # gradle-version: "9.8.2"
-          lfs: true
+          gradle-version: "9.8.2"
 
       - name: Build with Gradle
         run: ./gradlew clean shadowJar
