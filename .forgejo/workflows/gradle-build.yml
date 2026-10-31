@@ -20,7 +20,7 @@ jobs:
       - name: Set up JDK 21
         uses: https://github.com/actions/setup-java@v6
         with:
-          java-version: "25"
+          java-version: "21"
           distribution: "temurin"
           server-id: github
           settings-path: ${{ github.workspace }}
@@ -28,10 +28,10 @@ jobs:
       - name: Setup Gradle
         uses: https://github.com/gradle/actions/setup-gradle@v4
         with:
-          gradle-version: "current"
+          gradle-version: "8.14.1"
 
       - name: Build with Gradle
-        run: ./gradlew clean shadowJar
+        run: gradlew clean shadowJar
 
       - name: Upload Shadow JAR to Release
         uses: actions/forgejo-release@v2.13.4
