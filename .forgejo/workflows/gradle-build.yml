@@ -41,3 +41,5 @@ jobs:
         uses: actions/forgejo-release@v2.13.4
         with:
           direction: upload
+          release-notes-assistant: true
+          override: true
