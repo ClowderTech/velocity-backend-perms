@@ -28,7 +28,7 @@ jobs:
       - name: Setup Gradle
         uses: https://github.com/gradle/actions/setup-gradle@v4
         with:
-          gradle-version: "current"
+          gradle-version: "9.8.2"
 
       - name: Build with Gradle
         run: ./gradlew clean shadowJar
