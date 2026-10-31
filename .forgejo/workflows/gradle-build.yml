@@ -34,8 +34,10 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean shadowJar
 
+      - name: Move final output
+        run: mkdir -p dist/release && cp app/build/libs/velocity-backend-perms.jar dist/release
+
       - name: Upload Shadow JAR to Release
         uses: actions/forgejo-release@v2.13.4
         with:
           direction: upload
-          release-dir: app/build/libs
