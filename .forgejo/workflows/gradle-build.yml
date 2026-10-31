@@ -31,7 +31,7 @@ jobs:
           gradle-version: "8.14.1"
 
       - name: Build with Gradle
-        run: gradlew clean shadowJar
+        run: ./gradlew clean shadowJar
 
       - name: Upload Shadow JAR to Release
         uses: actions/forgejo-release@v2.13.4
